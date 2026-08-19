@@ -25,6 +25,13 @@
   --restart-hover: #9bbdff;
   --shadow-color: rgba(0, 0, 0, 0.6);
   --toggle-icon: "🌙";
+  --hs-highlight-bg: rgba(105, 240, 174, 0.18);
+  --hs-highlight-color: #69f0ae;
+  --input-bg: #1a1a25;
+  --input-border: #3a3a5a;
+  --input-text: #e0e0e0;
+  --danger-color: #e57373;
+  --danger-bg: #2a1a1e;
 }
 
 body.light-theme {
@@ -47,6 +54,13 @@ body.light-theme {
   --restart-color: #ffffff;
   --restart-hover: #5c7ce8;
   --shadow-color: rgba(0, 0, 0, 0.12);
+  --hs-highlight-bg: rgba(59, 91, 219, 0.12);
+  --hs-highlight-color: #2f8f5b;
+  --input-bg: #ffffff;
+  --input-border: #c4c4d6;
+  --input-text: #1a1a25;
+  --danger-color: #d32f2f;
+  --danger-bg: #fbe9e9;
 }
 
 body {
@@ -263,4 +277,207 @@ kbd {
 .powerup-legend .pu-icon {
   display: inline-block;
   width: 16px;
+}
+
+/* ---------- Combo ---------- */
+.combo-status {
+  color: #ffd54f;
+  font-weight: 700;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ---------- Pantalla de inicio / records ---------- */
+.start-box {
+  width: 280px;
+  max-width: 88vw;
+}
+
+.start-title {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 6px;
+  color: var(--title-color);
+}
+
+.highscores {
+  width: 100%;
+  text-align: left;
+}
+
+.highscore-list {
+  list-style: none;
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+}
+
+.highscore-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  color: var(--text-color);
+}
+
+.highscore-list li.hs-empty {
+  color: var(--controls-color);
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.highscore-list .hs-rank {
+  color: var(--label-color);
+  width: 18px;
+}
+
+.highscore-list .hs-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.highscore-list .hs-score {
+  color: var(--value-color);
+  font-weight: 700;
+}
+
+.highscore-list li.hs-new {
+  background: var(--hs-highlight-bg);
+  outline: 1px solid var(--hs-highlight-color);
+}
+
+.highscore-list li.hs-new .hs-score {
+  color: var(--hs-highlight-color);
+}
+
+.hs-stats {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 12px;
+  color: var(--controls-color);
+}
+
+.hs-stats strong {
+  color: var(--value-color);
+}
+
+.primary-btn {
+  margin-top: 4px;
+  background: var(--restart-bg);
+  color: var(--restart-color);
+  border: none;
+  border-radius: 6px;
+  padding: 12px 36px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.primary-btn:hover {
+  background: var(--restart-hover);
+}
+
+.reset-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: var(--controls-color);
+  font-size: 11px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link-btn:hover {
+  color: var(--danger-color);
+}
+
+.reset-confirm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 6px;
+  background: var(--danger-bg);
+  color: var(--danger-color);
+  font-size: 12px;
+}
+
+.reset-confirm-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.reset-confirm-actions button {
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#reset-confirm-yes {
+  background: var(--danger-color);
+  color: #fff;
+}
+
+#reset-confirm-no {
+  background: var(--kbd-bg);
+  color: var(--text-color);
+}
+
+/* ---------- Guardar puntuación ---------- */
+.save-score {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+#player-name-input {
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--input-text);
+  border-radius: 4px;
+  padding: 8px 10px;
+  font-size: 13px;
+  width: 130px;
+}
+
+#save-score-btn {
+  background: var(--restart-bg);
+  color: var(--restart-color);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#save-score-btn:hover {
+  background: var(--restart-hover);
+}
+
+.save-score-msg {
+  font-size: 12px;
+  color: var(--hs-highlight-color);
+  font-weight: 600;
 }

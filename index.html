@@ -33,6 +33,10 @@
         </div>
 
         <div class="panel-section">
+          <span class="power-status combo-status hidden" id="combo-status"></span>
+        </div>
+
+        <div class="panel-section">
           <span class="label">POWER-UP</span>
           <span class="power-status" id="power-status">Próximo en 5 líneas</span>
           <ul class="powerup-legend">
@@ -57,10 +61,46 @@
       </aside>
     </div>
 
+    <div id="start-screen" class="overlay">
+      <div class="overlay-box start-box">
+        <h2 class="start-title">TETRIS</h2>
+        <div class="highscores">
+          <span class="label">TOP 5</span>
+          <ol id="highscore-list" class="highscore-list">
+            <li class="hs-empty">Sin puntuaciones aún</li>
+          </ol>
+        </div>
+        <div class="hs-stats">
+          <span>Mejor combo <strong id="best-combo">0</strong></span>
+          <span>Máx. líneas <strong id="max-lines">0</strong></span>
+        </div>
+        <button id="play-btn" class="primary-btn">JUGAR</button>
+        <div class="reset-wrap">
+          <button id="reset-scores-btn" class="link-btn" type="button">Resetear records</button>
+          <div id="reset-confirm" class="reset-confirm hidden">
+            <span>¿Borrar todos los records?</span>
+            <div class="reset-confirm-actions">
+              <button id="reset-confirm-yes" type="button">Sí, borrar</button>
+              <button id="reset-confirm-no" type="button">Cancelar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div id="overlay" class="overlay hidden">
       <div class="overlay-box">
         <p id="overlay-title">GAME OVER</p>
         <p id="overlay-score"></p>
+        <div id="save-score-section" class="save-score hidden">
+          <input id="player-name-input" type="text" maxlength="12" placeholder="Tu nombre" autocomplete="off" />
+          <button id="save-score-btn" type="button">Guardar</button>
+        </div>
+        <p id="save-score-msg" class="save-score-msg hidden"></p>
+        <div id="overlay-highscores" class="highscores hidden">
+          <span class="label">TOP 5</span>
+          <ol id="overlay-highscore-list" class="highscore-list"></ol>
+        </div>
         <button id="restart-btn">Reiniciar</button>
       </div>
     </div>
